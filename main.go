@@ -20,10 +20,9 @@ func main() {
 	}
 
 	baseURL := args[1]
-	h, err := getHTML(baseURL)
-	if err != nil {
-		fmt.Printf("Unable to fetch html: %v\n", err)
+	pages := map[string]int{}
+	crawlPage(baseURL, baseURL, pages)
+	for k, v := range pages {
+		fmt.Printf("%s: %d\n", k, v)
 	}
-
-	fmt.Println(h)
 }
