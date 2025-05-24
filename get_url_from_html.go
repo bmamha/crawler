@@ -37,7 +37,6 @@ func extractLinks(n *html.Node, links []string, baseURL *url.URL) ([]string, err
 				}
 
 				resolvedURL := baseURL.ResolveReference(hrefURL)
-				fmt.Println(resolvedURL)
 				links = append(links, resolvedURL.String())
 
 			}

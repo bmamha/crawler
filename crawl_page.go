@@ -35,8 +35,6 @@ func (cfg *config) crawlPage(rawCurrentURL string) {
 		return
 	}
 
-	fmt.Printf("normalized url: %s\n", normalizedURL)
-
 	if isFirst := cfg.addPageVisit(normalizedURL); !isFirst {
 		return
 	}
@@ -54,8 +52,6 @@ func (cfg *config) crawlPage(rawCurrentURL string) {
 		fmt.Printf("error getting urls from html body: %v", err)
 		return
 	}
-
-	fmt.Printf("urls fetched - %v\n", fetchedURLs)
 
 	for _, url := range fetchedURLs {
 		cfg.wg.Add(1)
